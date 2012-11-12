@@ -90,6 +90,7 @@ GEM
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-ssh (2.6.1)
+    newrelic_rpm (3.5.0.1)
     nokogiri (1.5.5)
     orm_adapter (0.0.7)
     paper_trail (2.6.3)
@@ -214,6 +215,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   fog
   jquery-rails (~> 2.0.0)
+  newrelic_rpm
   pg
   rails (= 3.2.8)
   refinerycms (~> 2.0.0)
