@@ -65,3 +65,21 @@ Redneckmountaineering::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 end
+
+Refinery::Core.configure do |config|
+  config.s3_backend = true
+  config.s3_access_key_id = 'AKIAJ6PPOCFVZEVGZLMA'
+  config.s3_secret_access_key = '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'
+  config.s3_bucket_name = 'redneckmountaineering'
+  config.s3_region = 'us-east-1' # this one's not always required, default is 'us-east-1'
+end
+<ruby>
+
+h3(#turning-s3-on-and-off). 3 Turning S3 on and off
+
+S3 should automatically sense that it is enabled based on these ENV variables
+but if it is not you can add this code to the _end_ of the appropriate environment file, for
+example with the production environment +config/environments/production.rb+:
+
+<ruby>
+Refinery::Core.config.s3_backend = true
