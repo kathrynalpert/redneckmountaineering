@@ -23,3 +23,5 @@ doc/
 .DS_Store
 .idea
 
+#ignore resources
+public/system/*
