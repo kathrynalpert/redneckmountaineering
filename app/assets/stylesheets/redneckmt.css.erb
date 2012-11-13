@@ -1,24 +1,62 @@
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, menu, time, mark, audio, video {
-    background: none repeat scroll 0 0 transparent;
-    border: 0 none;
-    font-size: 100%;
-    margin: 0;
-    outline: 0 none;
-    padding: 0;
-    vertical-align: baseline;
+/*Reset*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
 }
-* {margin: 0;padding: 0;}
-body {background: none repeat scroll 0 0 #FFFFFF;font-family: "Times New Roman",serif;font-size: 14px;font-weight: 400;margin: 0;padding: 0;}
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+body {
+	color: black;
+	background: white;
+}
+ol, ul {
+	list-style: none;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
+
+/*Page Styling*/
+body {font-family: "Times New Roman",serif;font-size: 14px;font-weight: 400;margin: 0;padding: 0;}
 
 a {text-decoration: none;color:#000000; letter-spacing:0.1em;}
 a:visited{text-decoration: none; color:#000000;}
-a:hover{color:#700000;}
+a:hover{color:#980000;}
 
 h1,h2,h3{font-size:16px;text-transform:uppercase;color:#000;font-weight:normal;letter-spacing:0.1em;line-height:1.3em;}
 h3{margin-bottom:23px}
 strong{text-transform:uppercase;font-weight:normal;letter-spacing:0.1em;font-size:90%}
 h1#logo{position:absolute;top:130px;text-align:center;}
-h1#logo a {text-decoration: none;color:#700000;font-size:30px;letter-spacing:0.5em;padding-left:80px;}
+h1#logo a {text-decoration: none;color:#980000;font-size:30px;letter-spacing:0.5em;padding-left:80px;}
 h1#logo a:hover{color:#BBBBBB;}
 header#header {/*border-top: 4px solid #000000;*/
     float: left;
@@ -26,15 +64,16 @@ header#header {/*border-top: 4px solid #000000;*/
     width: 100%;
     height: 100px;
 }
-nav {clear: both;float: left;margin-bottom:102px;margin-top: 20px;width: 100%;}
-#menu ul{float:right;color:#8a8a8a;font-size:8px;}
+nav#menu {clear: both;float: left;margin-bottom:102px;margin-top: 20px;width: 100%;}
+#menu a{font-size:10px;text-transform:lowercase;color:#000000;font-weight:normal;letter-spacing:0.3em;line-height:1.3em;}
+#menu a:hover{color:#700000;}
+#menu ul{float:left;font-size:8px;color:#BBBBBB;list-style:disc outside none;}
 #menu ul li{float:left;margin:0 9px;}
 #menu ul li.first{list-style:none;}
-#menu ul li a{font-size:10px;text-transform:lowercase;color:#000000;font-weight:normal;letter-spacing:0.3em;line-height:1.3em;}
-#menu ul li a:hover{color:#700000;}
+#menu ul li#holder{list-style:none;margin-right:502px;}
 
 #page_container{width:900px; margin:0 auto;}
-#banner{text-align:center;}
+#banner{text-align:center;margin-bottom:80px;}
 #banner img#top {width:800px; height:444px;margin-bottom:30px;}
 #page p#phrase{
     font-size: 15px;
@@ -46,23 +85,52 @@ nav {clear: both;float: left;margin-bottom:102px;margin-top: 20px;width: 100%;}
     text-transform:uppercase;
 }
 
-hr.divide{width:250px;margin: 0 auto;color:#9F9F9F;background-color:#9F9F9F;height:1px;border:none;}
+hr.divide{width:250px;margin: 0 auto;color:#BBBBBB;background-color:#BBBBBB;height:1px;border:none;}
 
+/*#body_content{margin:0 20px;}*/
 #body_content_title{display:none;}
-#body_content_left{margin-bottom:20px;}
-footer{text-align:center;margin:40px;font-size: 0.8em;letter-spacing: 3px;text-transform:uppercase;}
+#body_content_right{text-align:center;font-size:0.8em;}
+footer{text-align:center;margin:40px 0 20px 0;font-size: 0.8em;letter-spacing: 3px;text-transform:lowercase;}
 
-section#blog_posts{margin-top:40px;}
+/*About page*/
+#body .inner h1, h1.title{font-size:30px; margin-bottom: 20px; text-align: center;letter-spacing:0.3em;}
+
+/*Blog*/
+.blog_post{
+    width: 150px;
+    border-top: 1px solid #CCCCCC;
+    float: left;
+    margin-bottom: 0;
+    margin-left:30px;
+    padding-top: 23px;
+}
+.blog_post.first{
+    width:510px;
+    margin-left:15px;
+}
+    
 .blog_post a {font-weight: bold;}
-.blog_post section.details,#blog_post section.details{color:#9F9F9F;text-transform:uppercase;font-size:8px;}
-.blog_post img{width:150px;height:150px;float:left;margin:5px;padding:0 10px 10px 0;}
-.blog_post section p{margin-bottom:10px;padding:10px;}
-.blog_post footer{text-align:left;margin:0 0 20px 0;}
+.blog_post #main_image{width:150px; height:150px; margin-bottom: 20px;}
+.blog_post #main_image img{width:150px; height: 150px; }
+.blog_post #teaser{width: 150px; float: left;}
+.blog_post #teaser p{margin-top:10px;}
+.blog_post #teaser a{text-align:left;margin:0 0 20px 0;text-transform:uppercase;}
+.blog_post #teaser .more{font-size:10px;}
+
+.blog_post.first #main_image{width:330px; height: 330px; float: left;}
+.blog_post.first #main_image img{width:330px; height: 330px; }
+.blog_post.first #teaser{width: 150px; float: left; margin-left: 30px;}
+
+.blog_post .details, #blog_post .details{color:#8a8a8a;text-transform:uppercase;font-size:8px;}
 .blog_post .comment_count{color:#9F9F9F;text-transform:uppercase;font-size:8px;}
+
+.pagination{clear:both; text-align:center; padding-top:20px;}
+.pagination span.disabled{display:none;}
 
 .inner h2{margin:10px 0 0 0;}
 ul#blog_posts li{margin:2px 10px;}
-a#rss_feed_subscribe{text-transform:lowercase;color:#8a8a8a;}
+#rss_feed_subscribe {width:0;}
+a#rss_feed_subscribe{text-transform:lowercase;color:#8a8a8a;margin-left: 409px;}
 a#rss_feed_subscribe:hover{color:orange;}
 
 #blog_post{text-align:center;}

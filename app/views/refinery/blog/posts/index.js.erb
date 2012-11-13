@@ -1,0 +1,2 @@
+$("#blog_posts").html("<%= escape_javascript(render(:partial => '/refinery/blog/shared/post', :collection => @posts)) %>");
+$("#blog_posts").append("<%= escape_javascript(will_paginate(@posts, :page_links=>false)) %>");

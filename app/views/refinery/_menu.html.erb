@@ -8,6 +8,7 @@
 -%>
 <nav id='<%= dom_id %>' class='<%= css %>'>
   <ul>
+    <li id="holder"><%= link_to "redneck mountaineering + blog", "/", :id => "root" %></li>
     <%= render :partial => '/refinery/menu_branch', :collection => roots,
                :locals => {
                  :hide_children => hide_children,

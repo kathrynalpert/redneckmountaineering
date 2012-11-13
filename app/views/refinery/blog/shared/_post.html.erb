@@ -1,11 +1,17 @@
 <% if post.live? %>
-  <article class="blog_post" id="<%= dom_id(post) %>">
-    <header>
+  <article class="blog_post <%= "first" if post_counter == 0%>" id="<%= dom_id(post) %>">
+    <section id="main_image" class='clearfix'>
+      <% if ! post.images.empty? %>
+        <%= link_to image_tag(post.images.first.url), refinery.blog_post_path(post) %>
+      <% end %>
+    </section>
+    <section id="teaser" class='clearfix'>
       <h1><%= link_to post.title, refinery.blog_post_path(post) %></h1>
       <section class='details'>
         <time datetime="<%=l post.published_at.to_date, :format => :default %>" class='posted_at'>
           <%= t('created_at', :scope => 'refinery.blog.shared.posts', :when => l(post.published_at.to_date, :format => :short)) %>
         </time>
+        <br/>
         <%= "#{t('by', :scope => 'refinery.blog.posts.show')} #{post.author.username}" if post.author.present? %>.
         <% if (categories = post.categories).any? %>
           <aside class='filed_in'>
@@ -20,18 +26,18 @@
           </aside>
         <% end %>
       </section>
-    </header>
-    <section class='clearfix'>
-      <% if blog_post_teaser_enabled? %>
-        <%= blog_post_teaser(post) %>
-      <% else %>
-        <%= post.body.html_safe %>
+      <% if post_counter == 0 %>
+        <% if blog_post_teaser_enabled? %>
+          <%= blog_post_teaser(post) %>
+        <% else %>
+          <%= post.body.html_safe %>
+        <% end %>
       <% end %>
-    </section>
-    <footer>
-      <p>
-        <%= link_to t('read_more', :scope => 'refinery.blog.shared.posts'), refinery.blog_post_path(post) if blog_post_teaser_enabled? %>
-      </p>
+      <section class="more">
+        <p>
+          <%= link_to t('read_more', :scope => 'refinery.blog.shared.posts'), refinery.blog_post_path(post) if blog_post_teaser_enabled? %>
+        </p>
+      </section>
       <aside class='comment_count'>
         <% if Refinery::Blog::Post.comments_allowed? %>
           <% if post.comments.any? %>
@@ -41,6 +47,6 @@
           <% end %>
         <% end %>
       </aside>
-    </footer>
+    </section>
   </article>
 <% end %>
